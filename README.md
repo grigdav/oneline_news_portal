@@ -1,6 +1,6 @@
 # Project Title
 
-Simple **Online News Portal** with admin editable news. Deploy and actually work [HERE](http://109.75.33.121/). Used newsapi module to get actually news, write it in DB and froned/admin views.  
+Simple **Online News Portal** with admin editable news. Deploy and actually work [HERE](http://109.75.33.121/). Used newsapi module to get actually news, write it in DB and frontend/admin views.  
 
 ## The stack of used libraries and technologies
 

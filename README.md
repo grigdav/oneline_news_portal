@@ -19,6 +19,6 @@ pip3 install -r requirements.txt
 
 ## Project screenshots
 
-![Alt text](http://full/path/to/img.jpg "Optional title")
+![Alt text](https://c.radikal.ru/c42/2102/0f/ff1c22b55db3.png "Home Page")
 
-![Alt text](http://full/path/to/img.jpg "Optional title")
+![Alt text](https://b.radikal.ru/b36/2102/e7/be87d0b81a63.png "News Page")

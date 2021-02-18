@@ -1,0 +1,14 @@
+{% include 'base.html' %}
+<aside>
+    <div class="details_container">
+        {% for news_field in news %}
+        <p class="title"> {{ news_field.news_title }} </p>
+        <p class="main_category"> Main category: {{ news_field.news_main_category }} </p>
+        {% for category in news_field.news_category.all %}
+        <p class="other_category"> Other categories: {{ category }}</p>
+        {% endfor %}
+        <p class="time"> News created: {{ news_field.news_create_time|date:"d/m/Y H:i" }}</p>
+        <p class="content"> {{ news_field.news_content|safe}} </p>
+        {% endfor %}
+    </div>
+</aside>

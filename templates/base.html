@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+    <script src="{% static 'js/jquery-3.3.1.min.js'%} "></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}" />
+    <title> {% block title %} News Portal {% endblock %}</title>
+</head>
+
+<body>
+    {% block header %}
+    <ul id="home_page_container">
+        <li id="logo_title"><i class="fas fa-newspaper"></i> News portal</li>
+        <li><a href="{% url 'home-page' %}">Return Home Page <i class="fas fa-home"></i></a></li>
+    </ul>
+    {% endblock %}
+</body>
+
+</html>

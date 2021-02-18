@@ -1,0 +1,56 @@
+<body>
+    {% include 'base.html' %}
+    <main>
+        {% block content %}
+        <nav>
+            <h1>News Categories</h1>
+            <div class="category_list">
+                {% for category in category_list %}
+                {% if category.category_name in request.path %}
+                <a class="selected" href="{% url 'news_filter' category=category %}"><i class="far fa-dot-circle"></i> {{ category.category_name }} </a>
+                {% else %}
+                <a href="{% url 'news_filter' category=category %}"><i class="far fa-dot-circle"></i> {{ category.category_name }} </a>
+                {% endif %}
+                {% empty %}
+                <span>Sorry we haven't any categories.</span>
+                {% endfor %}
+            </div>
+        </nav>
+        <section>
+            <h1> Last 10 actual news</h1>
+            <div id="full_news_container">
+                {% for news in all_news_list %}
+                <a class="news_block_container" href="{% url 'news_detail' title=news.news_title %}">
+                    <p class="link_title">{{ news.news_title }} </p>
+                    <p class="category"> {{ news.news_main_category }}</p>
+                    <p class="time"> {{ news.news_create_time }} </p>
+                </a>
+                {% empty %}
+                <p> News doesn't exist yet. </p>
+                {% endfor %}
+            </div>        
+           
+           
+            {% if is_paginated %}
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li>
+                    <span><a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-chevron-left"></i> Previous Page </a></span>
+                </li>
+                {% endif %}
+                <li class="">
+                    <i class="fas fa-ellipsis-h"></i><span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span><i class="fas fa-ellipsis-h"></i>
+                </li>
+                {% if page_obj.has_next %}
+                <li>
+                    <span><a href="?page={{ page_obj.next_page_number }}">Next Page <i class="fas fa-chevron-right"></i></a></span>
+                </li>
+                {% endif %}
+            </ul>
+            {% else %}
+            <p>News not yet available</p>
+            {% endif %}
+        </section>
+        {% endblock %}
+    </main>
+</body>
